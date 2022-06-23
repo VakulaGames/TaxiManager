@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "micoJcy5n6Hr6hOPKtN9aBohxvNvJ2eHpcsOcO8jSTTLzSRKltAhoOoO9xfDE1Y/Olix3Ui1E6FweeMUAJ6Dsw==",
+  "success": true,
+  "projectFilePath": "D:\\Applications\\TaxiManager\\TaxiServer\\TaxiServer\\TaxiServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vakul\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
