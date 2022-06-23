@@ -22,6 +22,7 @@ namespace TaxiServer
     {
         DriversManager _driversManager;
         Storage _storage;
+        TelegramBot _bot;
 
         public MainWindow()
         {
@@ -29,9 +30,15 @@ namespace TaxiServer
 
             _driversManager = new DriversManager();
             _storage = new Storage();
+            _bot = new TelegramBot(this);
 
             driversList.ItemsSource = _driversManager.Drivers;
 
+        }
+
+        public void ShowMessage(string text)
+        {
+            MessageBox.Show(text);
         }
 
         private void driversList_SelectionChanged(object sender, SelectionChangedEventArgs e)

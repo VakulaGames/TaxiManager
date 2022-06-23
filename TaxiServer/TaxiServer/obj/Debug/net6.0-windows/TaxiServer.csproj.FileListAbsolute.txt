@@ -23,3 +23,5 @@ D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\TaxiS
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\ref\TaxiServer.dll
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\DriverEdit.g.cs
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\DriverEdit.baml
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\Telegram.Bot.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\Telegram.Bot.Extensions.Polling.dll
