@@ -12,33 +12,42 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaxiServer.DB;
 
 namespace TaxiServer
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        DriversManager _driversManager;
-        Storage _storage;
-        TelegramBot _bot;
+        private DriversManager _driversManager;
+        private Storage _storage;
+        private DriverBot _driverBot;
+        private DataBase _dataBase;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _driversManager = new DriversManager();
-            _storage = new Storage();
-            _bot = new TelegramBot(this);
+            //_driversManager = new DriversManager(this);
+            //_storage = new Storage();
+            _dataBase = new DataBase(this);
+            _driverBot = new DriverBot(this, _dataBase);
+            //_driverBot.OnNewDriverEvent += AddDriver;
 
-            driversList.ItemsSource = _driversManager.Drivers;
+            //driversList.ItemsSource = _driversManager.Drivers;
 
         }
 
         public void ShowMessage(string text)
         {
             MessageBox.Show(text);
+        }
+
+        private void AddDriver(Driver newDriver)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                _driversManager.AddDriver(newDriver);
+            });
         }
 
         private void driversList_SelectionChanged(object sender, SelectionChangedEventArgs e)

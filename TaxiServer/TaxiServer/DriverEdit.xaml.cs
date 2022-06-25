@@ -21,7 +21,6 @@ namespace TaxiServer
     {
         private Driver _driver;
         private DriversManager _driversManager;
-        private bool _isNewDriver;
         private int _indexSelectDriver;
 
         /// <summary>
@@ -34,9 +33,8 @@ namespace TaxiServer
             InitializeComponent();
             this.Title = "Создание нового водителя";
             _driversManager = driversManager;
-            _driver = new Driver();
-            _isNewDriver = true;
-            UpdateFields();
+            _driver = new Driver("0");
+            //UpdateFields();
         }
 
         /// <summary>
@@ -49,18 +47,16 @@ namespace TaxiServer
             InitializeComponent();
             this.Title = "Изменение водителя";
             _driversManager = driversManager;
-            _driver = _driversManager.Drivers[index];
-            _isNewDriver = false;
             _indexSelectDriver = index;
-            UpdateFields();
+            //UpdateFields();
         }
 
-        private void UpdateFields()
-        {
-            this.callSign.Text = _driver.Callsign;
-            this.name.Text = _driver.Name;
-            this.automobile.Text = _driver.Automobile;
-        }
+        //private void UpdateFields()
+        //{
+        //    this.callSign.Text = _driver.Callsign;
+        //    this.name.Text = _driver.Name;
+        //    this.automobile.Text = _driver.Automobile;
+        //}
 
         private void CancelClick(object sender, RoutedEventArgs e)
         {
@@ -69,14 +65,10 @@ namespace TaxiServer
 
         private void ApplyClick(object sender, RoutedEventArgs e)
         {
-            _driver.EditDriver(this.callSign.Text, this.name.Text, this.automobile.Text);
+            //_driver.EditDriver(this.name.Text, this.automobile.Text, "Нужно добавить в DriverEdit", this.callSign.Text);
 
-            _driversManager.AddDriver(_driver);
+            //_driversManager.AddDriver(_driver);
 
-            if (_isNewDriver == false)
-            {
-                _driversManager.RemoveDriver(_indexSelectDriver);
-            }
             this.Close();
         }
     }

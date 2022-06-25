@@ -25,3 +25,11 @@ D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\Drive
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\DriverEdit.baml
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\Telegram.Bot.dll
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\Telegram.Bot.Extensions.Polling.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\AllDrivers.g.cs
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\AllDrivers.baml

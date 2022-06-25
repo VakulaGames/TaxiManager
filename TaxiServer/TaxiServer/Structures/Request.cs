@@ -8,7 +8,7 @@ namespace TaxiServer
         public Address Departure { get; }
         public Address Destination { get; }
         public Passenger Passenger { get; }
-        public Driver Driver { get; private set; }
+        //public Driver Driver { get; private set; }
         public string Status { get; private set; }
 
         public Request(Address departure, Address destination, Passenger passanger)
@@ -19,13 +19,13 @@ namespace TaxiServer
             Destination = destination;
             Passenger = passanger;
 
-            Driver = new Driver();
+            //Driver = new Driver();
             Status = "Поиск машины";
         }
 
         public void AssignDriver(Driver driver)
         {
-            Driver = driver;
+            //Driver = driver;
             Status = "водитель назначен";
         }
 
