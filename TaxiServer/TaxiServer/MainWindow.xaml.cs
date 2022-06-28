@@ -31,7 +31,7 @@ namespace TaxiServer
             //_storage = new Storage();
             _dataBase = new DataBase(this);
             _driverBot = new DriverBot(this, _dataBase);
-            //_driverBot.OnNewDriverEvent += AddDriver;
+            _driverBot.OnRegisteredEvent += UpdateTab;
 
             //driversList.ItemsSource = _driversManager.Drivers;
 
@@ -42,11 +42,11 @@ namespace TaxiServer
             MessageBox.Show(text);
         }
 
-        private void AddDriver(Driver newDriver)
+        private void UpdateTab(string ID)
         {
             this.Dispatcher.Invoke(() =>
             {
-                _driversManager.AddDriver(newDriver);
+                _dataBase.DisplayNewRow(ID);
             });
         }
 
@@ -54,7 +54,7 @@ namespace TaxiServer
         {
             if (driversList.SelectedIndex != -1)
             {
-                selectedDriver.Text = _driversManager.Drivers[driversList.SelectedIndex].Name;
+                selectedDriver.Text = $"{driversList.SelectedIndex}" ;
             }
             else
             {
@@ -85,5 +85,6 @@ namespace TaxiServer
                 MessageBox.Show("Сначала выберите водителя");
             }
         }
+
     }
 }

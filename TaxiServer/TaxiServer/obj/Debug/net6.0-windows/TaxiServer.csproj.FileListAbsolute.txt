@@ -33,3 +33,4 @@ D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runti
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\AllDrivers.g.cs
 D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\AllDrivers.baml
+D:\Applications\TaxiManager\TaxiServer\TaxiServer\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

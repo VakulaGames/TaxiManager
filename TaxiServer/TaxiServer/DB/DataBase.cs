@@ -47,5 +47,15 @@ namespace TaxiServer.DB
 
             _mainWindow.driversList.DataContext = _dataTable.DefaultView;
         }
+
+        public void DisplayNewRow(string ID)
+        {
+            string sql = $"SELECT * FROM Driver WHERE TelegramID = {ID}";
+            _dataAdapter.SelectCommand = new SqlCommand(sql, sqlConnection);
+
+            _dataAdapter.Fill(_dataTable);
+
+            _mainWindow.driversList.DataContext = _dataTable.DefaultView;
+        }
     }
 }
