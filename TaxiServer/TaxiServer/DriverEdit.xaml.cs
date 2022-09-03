@@ -33,7 +33,7 @@ namespace TaxiServer
             InitializeComponent();
             this.Title = "Создание нового водителя";
             _driversManager = driversManager;
-            _driver = new Driver("0");
+            _driver = new Driver(0);
             //UpdateFields();
         }
 

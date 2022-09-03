@@ -54,8 +54,8 @@ namespace TaxiServer
         public DriverBot(MainWindow mainWindow, DataBase dataBase)
         {
             _mainWindow = mainWindow;
-            _driversManager = new DriversManager(_mainWindow);
             _dataBase = dataBase;
+            _driversManager = new DriversManager(_mainWindow,_dataBase);
             _botClient = new TelegramBotClient(_token);
             _cancellationTokenSource = new CancellationTokenSource();
 
@@ -209,7 +209,7 @@ namespace TaxiServer
                 case DriverRegStatus.notRegistered:
                     if (message.Text == "/start")
                     {
-                        Driver driver = new Driver(_ID);
+                        Driver driver = new Driver(int.Parse(_ID));
                         await _commandHandler.AddRow(driver);
                         _responseMessage = "Вы регистрируетесь водителем в службу такси №1\n" +
                             "Введите свое имя";

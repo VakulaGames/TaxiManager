@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using TaxiServer.DB;
 using Telegram.Bot.Args;
 
 namespace TaxiServer
@@ -8,49 +9,21 @@ namespace TaxiServer
     {
         public ObservableCollection<Driver> Drivers { get; private set; }
 
-        private Storage _storage = new Storage();
-
         private MainWindow _mainWindow;
+        private DataBase _dataBase;
 
-        public DriversManager(MainWindow mainWindow)
+        public DriversManager(MainWindow mainWindow, DataBase dataBase)
         {
             _mainWindow = mainWindow;
-
-            Drivers = _storage.LoadDrivers();
+            _dataBase = dataBase;
+            Drivers = _dataBase.AllDrivers();
         }
 
-        public void AddDriver(Driver newDriver)
-        {
-            if (!Drivers.Contains(newDriver))
-            {
-                Drivers.Add(newDriver);
-            }
-
-            Save();
-        }
-
-        public void AddDriver()
-        {
-            //Drivers.Add(new Driver());
-        }
-
-        public void RemoveDriver(int index)
-        {
-            Drivers.Remove(Drivers[index]);
-
-            Save();
-        }
-
-        public void Save()
-        {
-            _storage.SaveDrivers(Drivers);
-        }
-
-        public Driver GetDriver(string id)
+        public Driver GetDriver(int telegramID)
         {
             foreach (Driver driver in Drivers)
             {
-                if (driver.TelegramID == id) return driver;
+                if (driver.TelegramID == telegramID) return driver;
             }
             return null;
         }

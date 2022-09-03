@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace TaxiServer.DB
 {
@@ -9,7 +11,6 @@ namespace TaxiServer.DB
         private MainWindow _mainWindow;
         SqlDataAdapter _dataAdapter;
         DataTable _dataTable;
-        DataRowView _dataRow;
 
         public DataBase(MainWindow mainWindow)
         {
@@ -44,8 +45,6 @@ namespace TaxiServer.DB
             _dataAdapter.SelectCommand = new SqlCommand(sql, sqlConnection);
 
             _dataAdapter.Fill(_dataTable);
-
-            _mainWindow.driversList.DataContext = _dataTable.DefaultView;
         }
 
         public void DisplayNewRow(string ID)
@@ -54,8 +53,37 @@ namespace TaxiServer.DB
             _dataAdapter.SelectCommand = new SqlCommand(sql, sqlConnection);
 
             _dataAdapter.Fill(_dataTable);
+        }
 
-            _mainWindow.driversList.DataContext = _dataTable.DefaultView;
+        public ObservableCollection<Driver> AllDrivers()
+        {
+            string sqlExpression = $"SELECT * FROM Driver";
+            SqlCommand command = new SqlCommand(sqlExpression, sqlConnection);
+            SqlDataReader reader = command.ExecuteReader();
+            ObservableCollection<Driver> drivers = new ObservableCollection<Driver>();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Driver driver = new Driver(
+                        int.Parse(reader[0].ToString()),
+                        int.Parse(reader[1].ToString()),
+                        bool.Parse(reader[2].ToString()),
+                        reader[3].ToString(),
+                        reader[4].ToString(),
+                        reader[5].ToString(),
+                        int.Parse(reader[6].ToString()),
+                        int.Parse(reader[7].ToString()),
+                        int.Parse(reader[9].ToString()),
+                        int.Parse(reader[10].ToString())
+                        );
+                    drivers.Add(driver);
+                }
+            }
+
+            reader.Close();
+            return drivers;
         }
     }
 }
